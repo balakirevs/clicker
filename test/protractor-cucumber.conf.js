@@ -11,9 +11,25 @@ exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: ['../features/*.feature'],
 
-  capabilities: {
-    browserName: 'chrome'
-  },
+  multiCapabilities: [{
+    browserName: 'chrome',
+    shardTestFiles: true,
+    maxInstances: 1,
+    splitTestsBetweenCapabilities: true,
+    chromeOptions: {args: ['--start-maximized']}
+  }, {
+    browserName: 'chrome',
+    shardTestFiles: true,
+    maxInstances: 1,
+    splitTestsBetweenCapabilities: true,
+    chromeOptions: {args: ['--window-size=320,480']}
+  }, {
+    browserName: 'chrome',
+    shardTestFiles: true,
+    maxInstances: 1,
+    splitTestsBetweenCapabilities: true,
+    chromeOptions: {args: ['--window-size=768,1024']}
+  }],
 
   baseUrl: 'http://localhost:8100/',
 
