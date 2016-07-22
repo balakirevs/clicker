@@ -33,7 +33,7 @@ exports.config = {
 
   onPrepare: function () {
     var SpecReporter = require('jasmine-spec-reporter');
-    wd = require('wd'),
+    var wd = require('wd'),
       protractor = require('protractor'),
       wdBridge = require('wd-bridge')(protractor, wd);
     wdBridge.initFromProtractor(exports.config);
