@@ -20,8 +20,8 @@ const runSequence: any = imports.runSequence;
 // just a hook into ionic's build
 gulp.task('build-app', (done: Function) => {
   runSequence(
-    'build',
-    (<any>done)
+      'build',
+      (<any>done)
   );
 });
 
@@ -34,10 +34,10 @@ gulp.task('build-e2e', ['clean-e2e'], () => {
     join(config.appDir, '**/*e2e.ts'),
   ];
   let result: any = gulp.src(src)
-    .pipe(typescript(tsProject));
+      .pipe(typescript(tsProject));
 
   return result.js
-    .pipe(gulp.dest(config.testDest));
+      .pipe(gulp.dest(config.testDest));
 });
 
 // delete _only_ tests generated on e2e.
@@ -90,16 +90,18 @@ gulp.task('lint', () => {
   let tslint: any = require('gulp-tslint');
 
   return gulp.src(join(config.appDir, '**/*.ts'))
-    .pipe(tslint())
-    .pipe(tslint.report('verbose'));
+      .pipe(tslint({
+        formatter: 'verbose',
+      }))
+      .pipe(tslint.report());
 });
 
 // build unit tests, run unit tests, remap and report coverage
 gulp.task('unit-test', (done: Function) => {
   runSequence(
-    ['clean'], // Ionic's clean task, nukes the whole of www/build
-    ['lint', 'html'],
-    'karma',
-    (<any>done)
+      ['clean'], // Ionic's clean task, nukes the whole of www/build
+      ['lint', 'html'],
+      'karma',
+      (<any>done)
   );
 });

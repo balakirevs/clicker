@@ -32,41 +32,36 @@ var buildSass = require('ionic-gulp-sass-build');
 var copyHTML = require('ionic-gulp-html-copy');
 var copyFonts = require('ionic-gulp-fonts-copy');
 var copyScripts = require('ionic-gulp-scripts-copy');
+var tslint = require('ionic-gulp-tslint');
 
 var isRelease = argv.indexOf('--release') > -1;
 
 gulp.task('watch', ['clean'], function(done){
-  runSequence(
-    ['sass', 'html', 'fonts', 'scripts'],
-    function(){
-      gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
-      gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
-      buildBrowserify(
-        {
-          src: ['./app/app.ts', './typings/index.d.ts'],
-          watch: true
+    runSequence(
+        ['sass', 'html', 'fonts', 'scripts'],
+        function(){
+            gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
+            gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
+            buildBrowserify({ watch: true }).on('end', done);
         }
-      ).on('end', done);
-    }
-  );
+    );
 });
 
 gulp.task('build', ['clean'], function(done){
-  runSequence(
-    ['sass', 'html', 'fonts', 'scripts'],
-    function(){
-      buildBrowserify({
-        src: ['./app/app.ts', './typings/index.d.ts'],
-        minify: isRelease,
-        browserifyOptions: {
-          debug: !isRelease
-        },
-        uglifyOptions: {
-          mangle: false
+    runSequence(
+        ['sass', 'html', 'fonts', 'scripts'],
+        function(){
+            buildBrowserify({
+                minify: isRelease,
+                browserifyOptions: {
+                    debug: !isRelease
+                },
+                uglifyOptions: {
+                    mangle: false
+                }
+            }).on('end', done);
         }
-      }).on('end', done);
-    }
-  );
+    );
 });
 
 gulp.task('sass', buildSass);
@@ -74,5 +69,6 @@ gulp.task('html', copyHTML);
 gulp.task('fonts', copyFonts);
 gulp.task('scripts', copyScripts);
 gulp.task('clean', function(){
-  return del('www/build');
+    return del('www/build');
 });
+gulp.task('lint', tslint);
