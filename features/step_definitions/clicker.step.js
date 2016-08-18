@@ -1,16 +1,10 @@
 'use strict';
 
-var chai              = require('chai');
-var chaiAsPromised    = require('chai-as-promised');
-var expect            = chai.expect;
-
-chai.use(chaiAsPromised);
-
 var ClickerSteps = function () {
 
+  this.World = require('../support/world').World;
   var HomePage = require('../page_objects/home.page.js');
   var homePage;
-
 
   this.Before(function () {
     homePage = new HomePage();
@@ -22,13 +16,14 @@ var ClickerSteps = function () {
   });
 
   this.Then(/^user should see the text "([^"]*)"$/, function (text, next) {
-    homePage.getMenuTitle(text);
+    this.expect(homePage.getMenuTitle()).to.eventually.contains(text).and.notify(next);
     next();
   });
 
   this.Then(/^left menu has a link "([^"]*)"$/, function (linkText, next) {
-    homePage.getMenuLink(linkText);
+    this.expect(homePage.getMenuLink()).to.eventually.contains(linkText).and.notify(next);
     next();
   });
 };
+
 module.exports = ClickerSteps;

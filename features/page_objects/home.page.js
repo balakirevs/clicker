@@ -1,11 +1,5 @@
 'use strict';
 
-var chai              = require('chai');
-var chaiAsPromised    = require('chai-as-promised');
-var expect            = chai.expect;
-
-chai.use(chaiAsPromised);
-
 var HomePage = function() {
 
   var menuIcon = element(by.css('.bar-button-menutoggle'));
@@ -16,12 +10,12 @@ var HomePage = function() {
     menuIcon.click();
   };
 
-  this.getMenuTitle = function(text) {
-    expect(menuTitle.getText()).to.eventually.contain(text);
+  this.getMenuTitle = function() {
+    return menuTitle.getText();
   };
 
-  this.getMenuLink = function(linkText) {
-    expect(menuLink.getText()).to.eventually.contain(linkText);
+  this.getMenuLink = function() {
+    return menuLink.getText();
   }
 };
 
