@@ -18,6 +18,11 @@ ionic emulate android  # start android application
 ionic emulate ios      # start ios application
 ```
 
+## Build for specific enviroment
+```bash
+ENV=qa ionic build android    # copying the files from /config/qa enviroment
+```
+
 ## Run Unit Tests
 ```bash
 npm test          # run unit tests

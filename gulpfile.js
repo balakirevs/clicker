@@ -1,8 +1,8 @@
 var gulp = require('gulp'),
-    gulpWatch = require('gulp-watch'),
-    del = require('del'),
-    runSequence = require('run-sequence'),
-    argv = process.argv;
+  gulpWatch = require('gulp-watch'),
+  del = require('del'),
+  runSequence = require('run-sequence'),
+  argv = process.argv;
 
 
 /**
@@ -37,38 +37,84 @@ var tslint = require('ionic-gulp-tslint');
 var isRelease = argv.indexOf('--release') > -1;
 
 gulp.task('watch', ['clean'], function(done){
-    runSequence(
-        ['sass', 'html', 'fonts', 'scripts'],
-        function(){
-            gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
-            gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
-            buildBrowserify({ watch: true }).on('end', done);
-        }
-    );
+  runSequence(
+    ['sass', 'html', 'fonts', 'scripts'],
+    function(){
+      gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
+      gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
+      buildBrowserify({ watch: true }).on('end', done);
+    }
+  );
 });
 
 gulp.task('build', ['clean'], function(done){
-    runSequence(
-        ['sass', 'html', 'fonts', 'scripts'],
-        function(){
-            buildBrowserify({
-                minify: isRelease,
-                browserifyOptions: {
-                    debug: !isRelease
-                },
-                uglifyOptions: {
-                    mangle: false
-                }
-            }).on('end', done);
+  runSequence(
+    ['sass', 'html', 'fonts', 'scripts'],
+    function(){
+      buildBrowserify({
+        minify: isRelease,
+        browserifyOptions: {
+          debug: !isRelease
+        },
+        uglifyOptions: {
+          mangle: false
         }
-    );
+      }).on('end', done);
+    }
+  );
 });
 
 gulp.task('sass', buildSass);
 gulp.task('html', copyHTML);
 gulp.task('fonts', copyFonts);
-gulp.task('scripts', copyScripts);
+gulp.task('scripts', ['configure-environment'], copyScripts);
 gulp.task('clean', function(){
-    return del('www/build');
+  return del('www/build');
 });
 gulp.task('lint', tslint);
+
+gulp.task('copy-config-xml', function(){
+  var env = process.env.ENV || 'dev';
+  var opts = {
+    src: 'config/' + env + '/config.xml',
+    dest: './',
+    onComplete: function() {
+      console.log('copy-config-xml(' + env.toUpperCase() + '): copied to ./');
+    },
+    onError: function(err) {
+      console.error(err.toString());
+      this.emit('end');
+    }
+  };
+
+  return gulp.src(opts.src)
+    .pipe(gulp.dest(opts.dest))
+    .on('end', opts.onComplete)
+    .on('error', opts.onError);
+});
+
+gulp.task('copy-config-ts', function(){
+  var env = process.env.ENV || 'dev';
+  var opts = {
+    src: 'config/' + env + '/config.ts',
+    dest: './config',
+    onComplete: function() {
+      console.log('copy-config-ts(' + env.toUpperCase() + '): copied to ./config');
+    },
+    onError: function(err) {
+      console.error(err.toString());
+      this.emit('end');
+    }
+  };
+  return gulp.src(opts.src)
+    .pipe(gulp.dest(opts.dest))
+    .on('end', opts.onComplete)
+    .on('error', opts.onError);
+});
+
+gulp.task('configure-environment', function(done){
+  return runSequence(
+    ['copy-config-ts', 'copy-config-xml'],
+    done
+  );
+});
