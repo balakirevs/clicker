@@ -34,8 +34,8 @@ describe('ClickerForm', () => {
     input.value = clickerName;
     TestUtils.eventFire(input, 'input');
     TestUtils.eventFire(button, 'click');
-    // expect(this.instance.newClickerLocal).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
-    // expect(Utils.resetControl).toHaveBeenCalledWith(this.instance.form.controls.clickerNameInput);
+    expect(this.instance.newClickerLocal).toHaveBeenCalledWith(Object({ clickerNameInput: clickerName }));
+    expect(Utils.resetControl).toHaveBeenCalledWith(this.instance.form.controls.clickerNameInput);
     console.log('this test is failing on travis and needs to be fixed');
   });
 
@@ -44,7 +44,7 @@ describe('ClickerForm', () => {
     this.instance.clickerName = '';
     this.fixture.detectChanges();
     TestUtils.eventFire(button, 'click');
-    // expect(this.instance.newClickerLocal).toHaveBeenCalled();
+    expect(this.instance.newClickerLocal).toHaveBeenCalled();
     console.log('this test is failing on travis and needs to be fixed');
   });
 });
