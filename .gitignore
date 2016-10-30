@@ -37,3 +37,4 @@ plugins
 
 .travis/travis_rsa.pem
 gen/
+www/
