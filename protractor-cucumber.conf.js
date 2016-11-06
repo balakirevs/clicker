@@ -4,12 +4,12 @@ exports.config = {
   frameworkPath: require.resolve('protractor-cucumber-framework'),
 
   cucumberOpts: {
-    require: ['../features/step_definitions/*.step.js', '../features/support/*.js'],
+    require: ['./e2e/features/step_definitions/*.step.js', './e2e/features/support/*.js'],
     format: "pretty"
   },
 
   seleniumAddress: 'http://localhost:4445/wd/hub',
-  specs: ['../features/*.feature'],
+  specs: ['./e2e/features/*.feature'],
 
   multiCapabilities: [{
     browserName: 'chrome',

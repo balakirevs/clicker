@@ -2,7 +2,7 @@ exports.config = {
   seleniumAddress: 'http://localhost:7777/wd/hub',
 
   specs: [
-    '../www/build/test/**/*.e2e.js'
+    './e2e/**/*.e2e-spec.ts'
   ],
 
   exclude: [],
@@ -16,17 +16,20 @@ exports.config = {
     showColors: true,
     isVerbose: false,
     includeStackTrace: false,
+    autoWebview: true,
     defaultTimeoutInterval: 400000
   },
 
   capabilities: {
     device: 'android',
     browserName: 'browser',
-    'appium-version': '1.5.2',
+    'appium-version': '1.5.3',
     platformName: 'android',
     platformVersion: '6.0',
     deviceName: 'emulator-5554',
-    nativeInstrumentsLib: true
+    autoWebview: true,
+    nativeInstrumentsLib: true,
+    app: "/Users/abv/Documents/code/clicker/platforms/android/build/outputs/apk/android-debug.apk"
   },
 
   baseUrl: 'http://10.0.2.2:' + (process.env.HTTP_PORT || '8100'),
@@ -42,14 +45,10 @@ exports.config = {
 
     browser.ignoreSynchronization = false;
   },
-
-
-  /**
-   * Angular 2 configuration
-   *
-   * useAllAngular2AppRoots: tells Protractor to wait for any angular2 apps on the page instead of just the one matching
-   * `rootEl`
-   *
-   */
+  beforeLaunch: function() {
+    require('ts-node').register({
+      project: 'e2e'
+    });
+  },
   useAllAngular2AppRoots: true
 };

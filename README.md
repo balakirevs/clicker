@@ -33,7 +33,7 @@ npm test          # run unit tests
 npm run karma    # start karma in debug mode: multi run Chrome, hit `debug` to get going.
 ```
 
-## Run E2E
+## Run E2E, Android & IOS currently not working
 ```
 # e2e (aka. end-to-end, integration) - In two different shell windows
 # Make sure you don't have a global instance of Protractor

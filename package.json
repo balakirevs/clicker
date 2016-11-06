@@ -12,9 +12,9 @@
     "build:before": "build",
     "run:before": "build",
     "e2e": "protractor",
-    "e2e-android": "protractor-android",
-    "e2e-ios": "protractor-ios",
-    "e2e-cucumber": "protractor-cucumber",
+    "e2e-android": "protractor protractor-android.conf.js",
+    "e2e-ios": "protractor protractor-ios.conf.js",
+    "e2e-cucumber": "protractor protractor-cucumber.conf.js",
     "postinstall": "ionic state restore && webdriver-manager update",
     "start": "ionic serve",
     "test": "ng test"

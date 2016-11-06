@@ -3,7 +3,7 @@ exports.config = {
   seleniumAddress: 'http://localhost:4723/wd/hub',
 
   specs: [
-    '../www/build/test/**/*.e2e.js'
+    './e2e/**/*.e2e-spec.ts'
   ],
 
   exclude: [],
@@ -24,9 +24,10 @@ exports.config = {
     browserName: 'safari',
     'appium-version': '1.5.2',
     platformName: 'iOS',
-    platformVersion: '9.3',
+    platformVersion: '10.0',
     deviceName: 'iPhone 6s',
-    app: '/Users/abv/Documents/code/clicker/platforms/ios/build/emulator/Clicker.app'
+    app: '/Users/abv/Documents/code/clicker/platforms/ios/build/emulator/Clicker.app',
+    automationName: 'XCUITest'
   },
 
   baseUrl: 'http://localhost:8100',
@@ -43,14 +44,5 @@ exports.config = {
 
     browser.ignoreSynchronization = false;
   },
-
-
-  /**
-   * Angular 2 configuration
-   *
-   * useAllAngular2AppRoots: tells Protractor to wait for any angular2 apps on the page instead of just the one matching
-   * `rootEl`
-   *
-   */
   useAllAngular2AppRoots: true
 };
