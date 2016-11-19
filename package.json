@@ -17,7 +17,7 @@
     "e2e-cucumber": "protractor protractor-cucumber.conf.js",
     "postinstall": "ionic state restore && webdriver-manager update",
     "start": "ionic serve",
-    "test": "ng test"
+    "test": "ng test --code-coverage"
   },
   "version": "2.0.1",
   "dependencies": {
@@ -31,16 +31,16 @@
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/platform-server": "2.0.0",
     "@ionic/storage": "1.1.6",
-    "ionic-angular": "2.0.0-rc.1",
+    "ionic-angular": "2.0.0-rc.3",
     "ionic-native": "2.2.3",
     "ionicons": "3.0.0",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "0.6.21"
+    "zone.js": "0.6.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "0.0.38",
+    "@ionic/app-scripts": "0.0.45",
     "@types/jasmine": "2.5.36",
-    "angular-cli": "1.0.0-beta.18",
+    "angular-cli": "1.0.0-beta.20-1",
     "codelyzer": "~0.0.26",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.7.0",
