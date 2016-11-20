@@ -1,36 +1,27 @@
 exports.config = {
 
   seleniumAddress: 'http://localhost:4723/wd/hub',
-
-  specs: [
-    './e2e/**/*.e2e-spec.ts'
-  ],
-
-  exclude: [],
-
-  framework: 'jasmine2',
-
-  allScriptsTimeout: 110000,
-
-  jasmineNodeOpts: {
-    showTiming: true,
-    showColors: true,
-    isVerbose: false,
-    includeStackTrace: false,
-    defaultTimeoutInterval: 400000
+  framework: 'custom',
+  frameworkPath: require.resolve('protractor-cucumber-framework'),
+  cucumberOpts: {
+    require: ['./e2e/features/step_definitions/*.step.js', './e2e/features/support/*.js'],
+    format: "pretty"
   },
+  specs: ['./e2e/features/*.feature'],
 
   capabilities: {
-    browserName: 'safari',
-    'appium-version': '1.5.2',
+    browserName: '',
+    'appium-version': '1.6.0',
     platformName: 'iOS',
-    platformVersion: '10.0',
+    platformVersion: '10.1',
     deviceName: 'iPhone 6s',
     app: '/Users/abv/Documents/code/clicker/platforms/ios/build/emulator/Clicker.app',
-    automationName: 'XCUITest'
+    automationName: 'XCUITest',
+    autoWebview: true,
+    fullReset: true
   },
 
-  baseUrl: 'http://localhost:8100',
+  baseUrl: '',
 
   onPrepare: function() {
     var wd = require('wd'),
@@ -38,11 +29,14 @@ exports.config = {
       wdBridge = require('wd-bridge')(protractor, wd);
     wdBridge.initFromProtractor(exports.config);
 
-    var SpecReporter = require('jasmine-spec-reporter');
-    // add jasmine spec reporter
-    jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: true}));
-
-    browser.ignoreSynchronization = false;
+    var defer = protractor.promise.defer();
+    browser.ignoreSynchronization = true;
+    browser.executeScript('return window.location;').then( function(location){
+      browser.resetUrl = 'file://';
+      browser.baseUrl = location.origin + location.pathname;
+      defer.fulfill();
+    });
+    return defer.promise;
   },
   useAllAngular2AppRoots: true
 };

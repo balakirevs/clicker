@@ -8,6 +8,7 @@ cd clicker
 npm install appium@1.5.2 -g or npm install appium@latest -g  # selenium server for mobile devices
 npm install       # or `npm run reinstall` if you get an error
 npm start         # start the desktop application (ionic serve)
+ionic serve -l    # To see the app rendered in all mobile platforms
 
 ionic platform add android
 ionic platform add ios
@@ -33,20 +34,17 @@ npm test          # run unit tests
 npm run karma    # start karma in debug mode: multi run Chrome, hit `debug` to get going.
 ```
 
-## Run E2E, Android & IOS currently not working
+## Run E2E, Android & IOS
 ```
 # e2e (aka. end-to-end, integration) - In two different shell windows
 # Make sure you don't have a global instance of Protractor
 
-npm start
-
 android avd  # run android emulator
 adb devices  # check what emulator devices are running
 
-appium -U emulator-5554 -p 8888 -bp 33517
+appium -U emulator-5554 -p 8888 -bp 33517 or node_modules/.bin/appium
 
-npm run e2e             // execute all e2e tests (desktop, ios, android, cucumber-e2e)
-npm run e2e-desktop
+npm run e2e
 npm run e2e-android
 npm run e2e-ios
 npm run e2e-cucumber

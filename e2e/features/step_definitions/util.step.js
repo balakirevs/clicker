@@ -5,7 +5,7 @@ var UtilSteps = function () {
   this.World = require('../support/world').World;
 
   this.Given(/^user navigates to home page$/, function (next) {
-    browser.get('/');
+    browser.get('');
     next();
   });
 
