@@ -52,8 +52,8 @@ npm run e2e-cucumber
 
 ## Dependencies
 
-* **@Angular:** 2.1.1
-* **Ionic:** 2.0.0-rc.3
+* **@Angular:** 2.2.1
+* **Ionic:** 2.0.0-rc.4
 
 ## Note
 
