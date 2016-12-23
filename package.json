@@ -37,7 +37,7 @@
     "@types/jasmine": "2.5.38",
     "@types/node": "6.0.42",
     "angular-cli": "1.0.0-beta.24",
-    "appium": "1.6.0",
+    "appium": "1.6.3",
     "appium-doctor": "1.2.5",
     "authorize-ios": "1.0.4",
     "chai": "3.5.0",
