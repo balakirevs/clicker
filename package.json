@@ -12,7 +12,8 @@
     "e2e-cucumber": "protractor protractor-cucumber.conf.js",
     "postinstall": "ionic state restore && webdriver-manager update",
     "start": "ionic serve",
-    "test": "ng test --code-coverage"
+    "test": "ng test",
+    "test-coverage": "ng test --code-coverage"
   },
   "version": "2.5.0",
   "dependencies": {
