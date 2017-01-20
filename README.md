@@ -36,9 +36,6 @@ npm run karma    # start karma in debug mode: multi run Chrome, hit `debug` to g
 
 ## Run E2E, Android & IOS
 ```
-# e2e (aka. end-to-end, integration) - In two different shell windows
-# Make sure you don't have a global instance of Protractor
-
 android avd  # run android emulator
 adb devices  # check what emulator devices are running
 
@@ -52,8 +49,9 @@ npm run e2e-cucumber
 
 ## Dependencies
 
-* **@Angular:** 2.2.1
-* **Ionic:** 2.0.0-rc.4
+* **Angular:** 2.2.1
+* **angular-cli**: 1.0.0-beta.25-5
+* **Ionic:** 2.0.0-rc.5
 
 ## Note
 
