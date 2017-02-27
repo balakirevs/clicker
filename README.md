@@ -44,14 +44,20 @@ appium -U emulator-5554 -p 8888 -bp 33517 or node_modules/.bin/appium
 npm run e2e
 npm run e2e-android
 npm run e2e-ios
+```
+
+## Run E2E Cucumber
+```
+npm start
+java -jar selenium-server-standalone-[version].jar
 npm run e2e-cucumber
 ```
 
 ## Dependencies
 
-* **Angular:** 2.2.1
-* **angular-cli**: 1.0.0-beta.26
-* **Ionic:** 2.0.0
+* **Angular:** 2.4.0
+* **angular-cli**: 1.0.0-rc.0
+* **Ionic:** 2.1.0
 
 ## Note
 
