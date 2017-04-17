@@ -11,10 +11,10 @@ exports.config = {
 
   capabilities: {
     browserName: '',
-    'appium-version': '1.6.0',
+    'appium-version': '1.6.4',
     platformName: 'iOS',
-    platformVersion: '10.1',
-    deviceName: 'iPhone 6s',
+    platformVersion: '10.3',
+    deviceName: 'iPhone 7',
     app: '/Users/abv/Documents/code/clicker/platforms/ios/build/emulator/Clicker.app',
     automationName: 'XCUITest',
     autoWebview: true,

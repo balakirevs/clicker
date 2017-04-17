@@ -5,7 +5,7 @@
 ```bash
 git clone https://github.com/balakirevs/clicker.git
 cd clicker
-npm install appium@1.5.2 -g or npm install appium@latest -g  # selenium server for mobile devices
+npm install appium@latest -g  # selenium server for mobile devices
 npm install       # or `npm run reinstall` if you get an error
 npm start         # start the desktop application (ionic serve)
 ionic serve -l    # To see the app rendered in all mobile platforms
@@ -29,11 +29,6 @@ ENV=qa ionic build android    # copying the files from /config/qa enviroment
 npm test          # run unit tests
 ```
 
-## Debug Unit tests
-```bash
-npm run karma    # start karma in debug mode: multi run Chrome, hit `debug` to get going.
-```
-
 ## Run E2E, Android & IOS
 ```
 android avd  # run android emulator
@@ -55,10 +50,6 @@ npm run e2e-cucumber
 
 ## Dependencies
 
-* **Angular:** 2.4.0
-* **angular-cli**: 1.0.0-rc.0
-* **Ionic:** 2.1.0
-
-## Note
-
-* **Ionic 2** does not currently support **Firefox**.
+* **@angular:** 4.0.0
+* **@angular-cli**: 1.0.0
+* **@ionic-angular** 3.0.1

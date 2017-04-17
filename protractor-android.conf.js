@@ -23,7 +23,7 @@ exports.config = {
   capabilities: {
     device: 'android',
     browserName: 'browser',
-    'appium-version': '1.5.3',
+    'appium-version': '1.6.4',
     platformName: 'android',
     platformVersion: '6.0',
     deviceName: 'emulator-5554',
