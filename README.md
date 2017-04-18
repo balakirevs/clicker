@@ -29,7 +29,17 @@ ENV=qa ionic build android    # copying the files from /config/qa enviroment
 npm test          # run unit tests
 ```
 
-## Run E2E, Android & IOS
+## Run E2E IOS
+```
+ionic platform add ios
+node_modules/.bin/appium-doctor
+sudo node_modules/.bin/authorize-ios
+ionic build ios
+node_modules/.bin/appium
+npm run e2e-ios
+```
+
+## Run E2E Android
 ```
 android avd  # run android emulator
 adb devices  # check what emulator devices are running
@@ -38,7 +48,6 @@ appium -U emulator-5554 -p 8888 -bp 33517 or node_modules/.bin/appium
 
 npm run e2e
 npm run e2e-android
-npm run e2e-ios
 ```
 
 ## Run E2E Cucumber
