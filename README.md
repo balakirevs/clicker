@@ -6,9 +6,9 @@
 git clone https://github.com/balakirevs/clicker.git
 cd clicker
 npm install appium@latest -g  # selenium server for mobile devices
-npm install       # or `npm run reinstall` if you get an error
-npm start         # start the desktop application (ionic serve)
-ionic serve -l    # To see the app rendered in all mobile platforms
+npm install                   # or `npm run reinstall` if you get an error
+npm start                     # start the desktop application (ionic serve)
+ionic serve -l                # To see the app rendered in all mobile platforms
 
 ionic platform add android
 ionic platform add ios
@@ -29,7 +29,12 @@ ENV=qa ionic build android    # copying the files from /config/qa enviroment
 npm test          # run unit tests
 ```
 
-## Run E2E IOS
+## Run E2E (specs)
+```
+npm run e2e
+```
+
+## Run E2E IOS (cucumber)
 ```
 ionic platform add ios
 node_modules/.bin/appium-doctor
@@ -39,18 +44,17 @@ node_modules/.bin/appium
 npm run e2e-ios
 ```
 
-## Run E2E Android
+## Run E2E Android (cucumber)
 ```
 android avd  # run android emulator
 adb devices  # check what emulator devices are running
 
 appium -U emulator-5554 -p 8888 -bp 33517 or node_modules/.bin/appium
 
-npm run e2e
 npm run e2e-android
 ```
 
-## Run E2E Cucumber
+## Run E2E Cucumber (Multi capabilities)
 ```
 npm start
 java -jar selenium-server-standalone-[version].jar
