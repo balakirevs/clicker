@@ -44,12 +44,25 @@ node_modules/.bin/appium
 npm run e2e-ios
 ```
 
-## Run E2E Android (cucumber)
-```
-android avd  # run android emulator
-adb devices  # check what emulator devices are running
+## Run E2E Android (specs)
 
-appium -U emulator-5554 -p 8888 -bp 33517 or node_modules/.bin/appium
+#### Note:
+The latest version of Android SDK (2.3.1) is not compatible with cordova emulation (6.2.1).
+
+```
+cordova platform ls
+```
+
+In this case after the ionic project android build (ionic build android) do the following:
+- inside **ionic_project/platforms/android/cordova/lib/emulator.js** file
+change this line *return superspawn.spawn('android', ['list', 'avds'])* to this
+*return superspawn.spawn('android', ['list', 'avd'])*
+
+```
+cd ~/library/Android/Sdk/tools/bin && ./avdmanager list avd     # check available devices
+cd ~/Library/Android/Sdk/tools && ./emulator -avd Device_Name   # run emulator
+
+appium -U emulator-5554 -p 8888 -bp 33517                       # or node_modules/.bin/appium
 
 npm run e2e-android
 ```
