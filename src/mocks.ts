@@ -159,37 +159,6 @@ export class StatusMock {
   }
 }
 
-export class StorageMock {
-
-  public get(key: string): Promise<{}> {
-    return new Promise((resolve: Function) => {
-      resolve({});
-    });
-  }
-
-  public set(key: string, value: string): Promise<{}> {
-    return new Promise((resolve: Function) => {
-      resolve({key: key, value: value});
-    });
-  }
-
-  public remove(key: string): Promise<{}> {
-    return new Promise((resolve: Function) => {
-      resolve({key: key});
-    });
-  }
-
-  public query(): Promise<{ res: { rows: Array<{}> }}> {
-    return new Promise((resolve) => {
-      resolve({
-        res: {
-          rows: [{}]
-        }
-      });
-    });
-  }
-}
-
 export class MenuMock {
   public close(): any {
     return new Promise((resolve: Function) => {
