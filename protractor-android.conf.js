@@ -1,5 +1,5 @@
 exports.config = {
-  seleniumAddress: 'http://localhost:7777/wd/hub',
+  seleniumAddress: 'http://localhost:4723/wd/hub',
 
   specs: [
     './e2e/**/*.e2e-spec.ts'
@@ -21,13 +21,13 @@ exports.config = {
   },
 
   capabilities: {
-    device: 'android',
-    browserName: 'browser',
-    'appium-version': '1.6.4',
+    browserName: '',
+    'appium-version': '1.5.3',
     platformName: 'android',
     platformVersion: '6.0',
     deviceName: 'emulator-5554',
     autoWebview: true,
+    avd: 'Nexus',
     nativeInstrumentsLib: true,
     app: "/Users/abv/Documents/code/clicker/platforms/android/build/outputs/apk/android-debug.apk"
   },
