@@ -8,7 +8,6 @@ exports.config = {
     format: "pretty"
   },
 
-  seleniumAddress: 'http://localhost:4445/wd/hub',
   specs: ['./e2e/features/*.feature'],
 
   multiCapabilities: [{
@@ -29,9 +28,19 @@ exports.config = {
     maxInstances: 1,
     splitTestsBetweenCapabilities: true,
     chromeOptions: {args: ['--window-size=768,1024']}
+  }, {
+    browserName: 'safari'
+  }, {
+    browserName: 'firefox'
   }],
 
   baseUrl: 'http://localhost:8100/',
 
-  useAllAngular2AppRoots: true
+  useAllAngular2AppRoots: true,
+  beforeLaunch: function() {
+    require('ts-node').register({
+      project: 'e2e/tsconfig.e2e.json'
+    });
+    require('connect')().use(require('serve-static')('www')).listen(8100);
+  }
 };

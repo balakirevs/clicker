@@ -69,9 +69,7 @@ npm run e2e-android
 ```
 
 ## Run E2E Cucumber (Multi capabilities)
-```
-npm start
-java -jar selenium-server-standalone-[version].jar
+```  
 npm run e2e-cucumber
 ```
 
