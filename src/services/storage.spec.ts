@@ -16,17 +16,17 @@ describe('StorageService', () => {
   });
 
   it('gets', () => {
-    storage.get('dave');
-    expect(storage['storage'].get).toHaveBeenCalledWith('dave');
+    storage.get('abv');
+    expect(storage['storage'].get).toHaveBeenCalledWith('abv');
   });
 
   it('sets', () => {
-    storage.set('dave', 'test');
-    expect(storage['storage'].set).toHaveBeenCalledWith('dave', 'test');
+    storage.set('abv', 'test');
+    expect(storage['storage'].set).toHaveBeenCalledWith('abv', 'test');
   });
 
   it('removes', () => {
-    storage.remove('dave');
-    expect(storage['storage'].remove).toHaveBeenCalledWith('dave');
+    storage.remove('abv');
+    expect(storage['storage'].remove).toHaveBeenCalledWith('abv');
   });
 });
