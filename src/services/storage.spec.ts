@@ -1,12 +1,10 @@
 import { StorageService } from './';
-import { StorageMock }    from './mocks';
 
 let storage: StorageService = null;
 
 describe('StorageService', () => {
 
   beforeEach(() => {
-    spyOn(StorageService, 'initStorage').and.returnValue(new StorageMock());
     storage = new StorageService();
     spyOn(storage['storage'], 'get').and.callThrough();
     spyOn(storage['storage'], 'set').and.callThrough();
