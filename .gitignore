@@ -25,7 +25,6 @@ $RECYCLE.BIN/
 .io-config.json
 
 # dynamic config files generated at build time
-config.xml
 config/config.ts
 
 .DS_Store
