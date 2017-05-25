@@ -1,7 +1,7 @@
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
-const { SpecReporter } = require('jasmine-spec-reporter');
+const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
 exports.config = {
   allScriptsTimeout: 11000,
@@ -27,7 +27,7 @@ exports.config = {
 
     require('connect')().use(require('serve-static')('www')).listen(4200);
   },
-  onPrepare() {
+  onPrepare: function() {
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
   }
 };

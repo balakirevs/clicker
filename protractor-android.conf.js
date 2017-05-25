@@ -35,7 +35,7 @@ exports.config = {
   baseUrl: 'http://10.0.2.2:' + (process.env.HTTP_PORT || '8100'),
 
   onPrepare: function () {
-    var SpecReporter = require('jasmine-spec-reporter');
+    const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
     var wd = require('wd'),
       protractor = require('protractor'),
       wdBridge = require('wd-bridge')(protractor, wd);
