@@ -35,13 +35,13 @@ exports.config = {
   baseUrl: 'http://10.0.2.2:' + (process.env.HTTP_PORT || '8100'),
 
   onPrepare: function () {
-    const SpecReporter = require('jasmine-spec-reporter');
+    const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
     var wd = require('wd'),
       protractor = require('protractor'),
       wdBridge = require('wd-bridge')(protractor, wd);
     wdBridge.initFromProtractor(exports.config);
     // add jasmine spec reporter
-    jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: true}));
+    jasmine.getEnv().addReporter(new SpecReporter({spec: {displayStacktrace: true} }));
 
     browser.ignoreSynchronization = false;
     browser.get = function() { };
