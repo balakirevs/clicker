@@ -46,18 +46,6 @@ npm run e2e-ios
 
 ## Run E2E Android (specs)
 
-#### Note:
-The latest version of Android SDK (2.3.1) is not compatible with cordova emulation (6.2.1).
-
-```
-cordova platform ls
-```
-
-In this case after the ionic project android build (ionic build android) do the following:
-- inside **ionic_project/platforms/android/cordova/lib/emulator.js** file
-change this line *return superspawn.spawn('android', ['list', 'avds'])* to this
-*return superspawn.spawn('android', ['list', 'avd'])*
-
 ```
 cd ~/library/Android/Sdk/tools/bin && ./avdmanager create avd --name 'Nexus_API_25' --package 'system-images;android-25;google_apis;x86_64'  # create avd
 cd ~/library/Android/Sdk/tools/bin && ./avdmanager list avd     # check available devices
