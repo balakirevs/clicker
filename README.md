@@ -59,7 +59,7 @@ change this line *return superspawn.spawn('android', ['list', 'avds'])* to this
 *return superspawn.spawn('android', ['list', 'avd'])*
 
 ```
-cd ~/library/Android/Sdk/tools/bin && ./avdmanager create avd --name 'test2' --package 'system-images;android-23;default;x86_64'  # create avd
+cd ~/library/Android/Sdk/tools/bin && ./avdmanager create avd --name 'Nexus_API_25' --package 'system-images;android-25;google_apis;x86_64'  # create avd
 cd ~/library/Android/Sdk/tools/bin && ./avdmanager list avd     # check available devices
 cd ~/Library/Android/Sdk/tools && ./emulator -avd Device_Name   # Optional run emulator
 

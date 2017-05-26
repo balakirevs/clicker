@@ -22,12 +22,12 @@ exports.config = {
 
   capabilities: {
     browserName: '',
-    'appium-version': '1.5.3',
+    'appium-version': '1.6.4',
     platformName: 'android',
-    platformVersion: '6.0',
-    deviceName: 'emulator-5554',
+    platformVersion: '7.1.1',
+    deviceName: 'emulator-5584',
     autoWebview: true,
-    avd: 'Nexus',
+    avd: 'Nexus_API_25',
     nativeInstrumentsLib: true,
     app: "/Users/abv/Documents/code/clicker/platforms/android/build/outputs/apk/android-debug.apk"
   },
@@ -35,7 +35,7 @@ exports.config = {
   baseUrl: 'http://10.0.2.2:' + (process.env.HTTP_PORT || '8100'),
 
   onPrepare: function () {
-    const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+    const SpecReporter = require('jasmine-spec-reporter');
     var wd = require('wd'),
       protractor = require('protractor'),
       wdBridge = require('wd-bridge')(protractor, wd);
@@ -44,6 +44,7 @@ exports.config = {
     jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: true}));
 
     browser.ignoreSynchronization = false;
+    browser.get = function() { };
   },
   beforeLaunch: function() {
     require('ts-node').register({
