@@ -10,8 +10,8 @@ npm install                   # or `npm run reinstall` if you get an error
 npm start                     # start the desktop application (ionic serve)
 ionic serve -l                # To see the app rendered in all mobile platforms
 
-ionic platform add android
-ionic platform add ios
+ionic cordova platform add android
+ionic cordova platform add ios
 
 # Before emulating android device make sure you have created emulators based on platform 4.4.2 and API level 19.
 
@@ -36,7 +36,7 @@ npm run e2e
 
 ## Run E2E IOS (cucumber)
 ```
-ionic platform add ios
+ionic cordova platform add ios
 node_modules/.bin/appium-doctor
 sudo node_modules/.bin/authorize-ios
 ionic build ios
