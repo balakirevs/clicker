@@ -3,19 +3,27 @@
 import { EventEmitter}      from '@angular/core';
 import { FormBuilder }      from '@angular/forms';
 
+// from
+// https://github.com/stonelasley/ionic-mocks/
+// should the package be incorporated?
+
+declare var jasmine: any;
+
 export class AlertMock {
-
-  public create(): any {
-    let rtn: Object = {};
-    rtn['present'] = (() => true);
-    return rtn;
+  public static instance(): any {
+    let instance = jasmine.createSpyObj('Alert', ['present', 'dismiss']);
+    instance.present.and.returnValue(Promise.resolve());
+    instance.dismiss.and.returnValue(Promise.resolve());
+    return instance;
   }
+}
 
-  // function actually on the AlertClass (not AlertController), but using these interchangably for now
-  public dismiss(): Promise<{}> {
-    return new Promise(function(resolve: Function): void {
-      resolve();
-    });
+export class AlertControllerMock {
+
+  public static instance(alertMock?: AlertMock): any {
+    let instance = jasmine.createSpyObj('AlertController', ['create']);
+    instance.create.and.returnValue(alertMock || AlertMock.instance());
+    return instance;
   }
 }
 
