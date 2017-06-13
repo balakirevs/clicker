@@ -22,12 +22,12 @@ exports.config = {
 
   capabilities: {
     browserName: '',
-    'appium-version': '1.6.4',
+    'appium-version': '1.6.5',
     platformName: 'android',
     platformVersion: '7.1.1',
     deviceName: 'emulator-5584',
     autoWebview: true,
-    avd: 'Nexus_API_25',
+    avd: 'Nexus_5X_API_25',
     nativeInstrumentsLib: true,
     app: "/Users/abv/Documents/code/clicker/platforms/android/build/outputs/apk/android-debug.apk"
   },
