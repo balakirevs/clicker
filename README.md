@@ -15,8 +15,8 @@ ionic cordova platform add ios
 
 # Before emulating android device make sure you have created emulators based on platform 4.4.2 and API level 19.
 
-ionic emulate android  # start android application
-ionic emulate ios      # start ios application
+ionic cordova emulate android --target="Nexus_API_26"  # start android application
+ionic cordova emulate ios                              # start ios application
 ```
 
 ## Build for specific enviroment
