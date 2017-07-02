@@ -63,6 +63,6 @@ npm run e2e-cucumber
 
 ## Dependencies
 
-* **@angular:** 4.1.2
-* **@angular-cli**: 1.0.6
-* **@ionic-angular** 3.3.0
+* **@angular:** 4.1.3
+* **@angular-cli**: 1.1.2
+* **@ionic-angular** 3.4.2
