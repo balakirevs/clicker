@@ -13,7 +13,7 @@
         "e2e-android": "ionic-app-scripts build && protractor protractor-android.conf.js",
         "e2e-ios": "ionic-app-scripts build && protractor protractor-ios.conf.js",
         "e2e-cucumber": "ionic-app-scripts build && protractor protractor-cucumber.conf.js",
-        "postinstall": "webdriver-manager update --gecko false",
+        "postinstall": "webdriver-manager update",
         "start": "ionic serve",
         "test": "ng test",
         "test-coverage": "ng test --code-coverage",
