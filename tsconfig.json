@@ -12,6 +12,9 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "types": [
       "jasmine"
     ]
