@@ -13,7 +13,7 @@ exports.config = {
     browserName: '',
     'appium-version': '1.7.1',
     platformName: 'iOS',
-    platformVersion: '11.1',
+    platformVersion: '11.2',
     deviceName: 'iPhone 8',
     app: '/Users/user/Documents/code/clicker/platforms/ios/build/emulator/Clicker.app',
     automationName: 'XCUITest',
