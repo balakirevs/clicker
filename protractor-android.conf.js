@@ -29,7 +29,7 @@ exports.config = {
     autoWebview: true,
     avd: 'Nexus_5X_API_25',
     nativeInstrumentsLib: true,
-    app: "/Users/abv/Documents/code/clicker/platforms/android/build/outputs/apk/android-debug.apk"
+    app: "/Users/user/Documents/code/clicker/platforms/android/build/outputs/apk/android-debug.apk"
   },
 
   baseUrl: 'http://10.0.2.2:' + (process.env.HTTP_PORT || '8100'),

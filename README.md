@@ -39,7 +39,7 @@ npm run e2e
 ionic cordova platform add ios
 node_modules/.bin/appium-doctor
 sudo node_modules/.bin/authorize-ios
-ionic build ios
+ionic cordova build ios
 node_modules/.bin/appium
 npm run e2e-ios
 ```
@@ -63,6 +63,6 @@ npm run e2e-cucumber
 
 ## Dependencies
 
-* **@angular:** 4.1.3
-* **@angular-cli**: 1.3.2
-* **@ionic-angular** 3.6.0
+* **@angular:** 5.1.1
+* **@angular-cli**: 1.6.1
+* **@ionic-angular** 3.9.2
