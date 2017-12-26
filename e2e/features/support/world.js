@@ -1,10 +1,4 @@
-var World, chai, chaiAsPromised;
-chai = require('chai');
-chaiAsPromised = require('chai-as-promised');
-
-World = function World() {
-  chai.use(chaiAsPromised);
-  this.expect = chai.expect;
-};
-
-module.exports.World = World;
+const chai = require("chai");
+const chaiAsPromised = require("chai-as-promised");
+chai.use(chaiAsPromised);
+global.expect = chai.expect;

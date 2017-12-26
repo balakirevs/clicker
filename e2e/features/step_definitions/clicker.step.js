@@ -1,29 +1,20 @@
-'use strict';
+const { defineSupportCode } = require('cucumber');
+const homePage = require('../page_objects/home.page.js');
 
-var ClickerSteps = function () {
+defineSupportCode(function({ When, Then }) {
 
-  this.World = require('../support/world').World;
-  var HomePage = require('../page_objects/home.page.js');
-  var homePage;
-
-  this.Before(function () {
-    homePage = new HomePage();
-  });
-
-  this.When(/^user clicks menu icon$/, function (next) {
+  When(/^user clicks menu icon$/, function (callback) {
     homePage.clickMenuIcon();
-    next();
+    callback();
   });
 
-  this.Then(/^user should see the text "([^"]*)"$/, function (text, next) {
-    this.expect(homePage.getMenuTitle()).to.eventually.contains(text).and.notify(next);
-    next();
+  Then(/^user should see the text "([^"]*)"$/, function (text, callback) {
+    expect(homePage.getMenuTitle()).to.eventually.contains(text).and.notify(callback);
+    callback();
   });
 
-  this.Then(/^left menu has a link "([^"]*)"$/, function (linkText, next) {
-    this.expect(homePage.getMenuLink()).to.eventually.contains(linkText).and.notify(next);
-    next();
+  Then(/^left menu has a link "([^"]*)"$/, function (linkText, callback) {
+    expect(homePage.getMenuLink()).to.eventually.contains(linkText).and.notify(callback);
+    callback();
   });
-};
-
-module.exports = ClickerSteps;
+});

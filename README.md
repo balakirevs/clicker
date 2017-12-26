@@ -66,3 +66,4 @@ npm run e2e-cucumber
 * **@angular:** 5.1.1
 * **@angular-cli**: 1.6.1
 * **@ionic-angular** 3.9.2
+* **@cucumber** 3.2.0

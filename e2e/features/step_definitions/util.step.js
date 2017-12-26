@@ -1,18 +1,14 @@
-'use strict';
+const { defineSupportCode } = require('cucumber');
 
-var UtilSteps = function () {
+defineSupportCode(function({ Given, Then }) {
 
-  this.World = require('../support/world').World;
-
-  this.Given(/^user navigates to home page$/, function (next) {
+  Given(/^user navigates to home page$/, function (callback) {
     browser.get('');
-    next();
+    callback();
   });
 
-  this.Then(/^user should see the title "([^"]*)"$/, function (title, next) {
-    this.expect(browser.getTitle()).to.eventually.equal(title).and.notify(next);
-    next();
+  Then(/^user should see the title "([^"]*)"$/, function (title, callback) {
+    expect(browser.getTitle()).to.eventually.equal(title).and.notify(callback);
+    callback();
   });
-};
-
-module.exports = UtilSteps;
+});
